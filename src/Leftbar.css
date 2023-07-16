@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .Leftbar {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    width: 7rem;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .navbar {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+  }
+  
+  .logo {
+    margin-top: 40%;
+    text-align: center;
+  }
+  
+  .logo img {
+    width: 100%;
+    margin-right: 4px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .icons {
+    margin-bottom: 50%;
+    transition: transform 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icons horizontally */
+  }
+  
+  .text {
+    display: none;
+    margin-left: 5px;
+    transition: opacity 0.3s;
+  }
+  
+  .icons:hover {
+    transform: translateX(-5px);
+  }
+  
+  .icons:hover .text {
+    display: inline-block;
+    opacity: 1;
+  }
+  .noDecoration {
+    text-decoration: none;
+  }
