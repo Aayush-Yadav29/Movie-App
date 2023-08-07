@@ -4,11 +4,14 @@ import './MainPanel.css';
 import Categories from './Categories';
 import Watchlist from './Watchlist';
 import config from './config.json';
+
 const MainPanel = () => {
-  // fetching and storing movies
+  // Fetching and storing movies
   const [popularMovies, setPopularMovies] = useState([]);
-  const [topGrossing, settopGrossing] = useState([]);
-  const [topVoted, settopVoted] = useState([]);
+  const [topGrossing, setTopGrossing] = useState([]);
+  const [topVoted, setTopVoted] = useState([]);
+  const [horrorMovies, setHorrorMovies] = useState([]);
+  const [comedyMovies, setComedyMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -19,7 +22,7 @@ const MainPanel = () => {
       try {
         const responses = await Promise.all(
           categories.map((category) =>
-          fetch(`${baseUrl}?api_key=${apiKey}&sort_by=${category}.desc&page=1`) 
+            fetch(`${baseUrl}?api_key=${apiKey}&sort_by=${category}.desc&page=1`)
           )
         );
 
@@ -28,8 +31,24 @@ const MainPanel = () => {
         );
 
         setPopularMovies(results[0].results);
-        settopGrossing(results[1].results);
-        settopVoted(results[2].results);
+        setTopGrossing(results[1].results);
+        setTopVoted(results[2].results);
+
+        // Fetch movies by genre (Horror)
+        const horrorGenreId = 27; // Replace with the genre ID for Horror (you can find genre IDs in TMDB documentation)
+        const horrorResponse = await fetch(
+          `${baseUrl}?api_key=${apiKey}&with_genres=${horrorGenreId}&page=1`
+        );
+        const horrorResult = await horrorResponse.json();
+        setHorrorMovies(horrorResult.results);
+
+        // Fetch movies by genre (Comedy)
+        const comedyGenreId = 35; // Replace with the genre ID for Comedy (you can find genre IDs in TMDB documentation)
+        const comedyResponse = await fetch(
+          `${baseUrl}?api_key=${apiKey}&with_genres=${comedyGenreId}&page=1`
+        );
+        const comedyResult = await comedyResponse.json();
+        setComedyMovies(comedyResult.results);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -38,6 +57,7 @@ const MainPanel = () => {
     fetchMovies();
   }, []);
 
+  // Rest of the code remains the same...
   // implement watchlist
   const[watchlist, Setwatchlist] = useState([]);
 
@@ -45,17 +65,23 @@ const MainPanel = () => {
     Setwatchlist([...watchlist,
       {...movie, id : movie.length+1}  // Append the new todo to the existing todos array
     ]);
+    console.log(watchlist);
     // const newList = [...watchlist, movie];
     // Setwatchlist(newList);
   }
+ 
   return (
     <div className="MainPanel">
+      {/* Existing components */}
       <ItemsPanel category="Popular" moviesArray={popularMovies} handlewatchlist={addTowatchlist} key="pop" />
       <Categories />
       <ItemsPanel category="Highest Grossing" moviesArray={topGrossing} handlewatchlist={addTowatchlist} key="gross" />
-      <ItemsPanel category="Higly Rated" moviesArray={topVoted} handlewatchlist={addTowatchlist} key="rate" />
-      <Watchlist moviesArray={watchlist}/>
-
+      <ItemsPanel category="Highly Rated" moviesArray={topVoted} handlewatchlist={addTowatchlist} key="rate" />
+      
+      {/* New components for horror and comedy movies */}
+      <ItemsPanel category="Horror" moviesArray={horrorMovies} handlewatchlist={addTowatchlist}  key="horror" />
+      <ItemsPanel category="Comedy" moviesArray={comedyMovies} handlewatchlist={addTowatchlist} key="comedy" />
+      <Watchlist moviesArray={watchlist} />
     </div>
   );
 };
