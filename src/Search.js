@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Search.css";
-import axios from "axios";
 import config from './config.json';
+
 const Search = () => {
   const MOVIE_API = "https://api.themoviedb.org/3/";
   const SEARCH_API = MOVIE_API + "search/movie";
@@ -18,29 +18,30 @@ const Search = () => {
   }, []);
 
   const fetchMovies = async (apiUrl, setResults) => {
-    const { data } = await axios.get(apiUrl, {
-      params: {
-        api_key: API_KEY,
-      },
-    });
-
-    setResults(data.results);
-    setShowSearchResults(false);
+    try {
+      const response = await fetch(`${apiUrl}?api_key=${API_KEY}`);
+      const data = await response.json();
+      setResults(data.results);
+      setShowSearchResults(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle error state here if needed
+    }
   };
 
   const handleSearch = async (event) => {
     event.preventDefault();
 
     if (searchKey) {
-      const { data } = await axios.get(SEARCH_API, {
-        params: {
-          api_key: API_KEY,
-          query: searchKey,
-        },
-      });
-
-      setSearchResults(data.results);
-      setShowSearchResults(true);
+      try {
+        const response = await fetch(`${SEARCH_API}?api_key=${API_KEY}&query=${searchKey}`);
+        const data = await response.json();
+        setSearchResults(data.results);
+        setShowSearchResults(true);
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+        // Handle error state here if needed
+      }
     } else {
       setShowSearchResults(false);
     }
@@ -49,7 +50,7 @@ const Search = () => {
   return (
     <div className="Search">
       <header className="center-max-size header">
-        <span className={"brand"}>Movie Trailer App</span>
+        {/* <span className={"brand"}>Movie Trailer App</span> */}
         <form className="form" onSubmit={handleSearch}>
           <input
             className="search"

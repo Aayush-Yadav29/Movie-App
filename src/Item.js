@@ -1,8 +1,8 @@
 // import React, { useState } from 'react';
 import './Item.css';
-
-const Item = ({ movieInfo, handlewatchlist }) => {
-  console.log(movieInfo.backdrop_path);
+import { Link } from "react-router-dom";
+const Item = ({ movieInfo, handlewatchlist}) => {
+  // console.log(movieInfo.backdrop_path);
   
   return (
     <div className="Item">
@@ -11,7 +11,9 @@ const Item = ({ movieInfo, handlewatchlist }) => {
           <img src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt="" />
         </div>
         <div className="Item-details">
-          <button className="WatchNowButton">Watch Now</button>
+          <Link to={`/MainPanel/${movieInfo.id}`}>
+              <button className="WatchNowButton">Watch Now</button>
+          </Link>
           <button className="PlusButton" onClick={handlewatchlist}>+</button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import './Leftbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faSearch, faTv, faVolleyball } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+// import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
@@ -21,10 +21,10 @@ const Leftbar = () => {
 
             )}
             <div className="navbar">
-                <div className="icons myspace">
+                {/* <div className="icons myspace">
                 <FontAwesomeIcon icon={faUser} />
                 <span className="text">My Space</span>
-                </div>
+                </div> */}
                 <div className="icons search">
                 <FontAwesomeIcon icon={faSearch} />
                 <Link to = "/Search"  className="noDecoration"> 
@@ -33,11 +33,15 @@ const Leftbar = () => {
                 </div>
                 <div className="icons home">
                 <FontAwesomeIcon icon={faHouse} />
-                <span className="text">Home</span>
+                <Link to = "/MainPanel"  className="noDecoration"> 
+                <span className="text noDecoration">Home</span>
+                </Link>
                 </div>
                 <div className="icons tv">
                 <FontAwesomeIcon icon={faTv} />
-                <span className="text">TV</span>
+                <Link to = "/Tv"  className="noDecoration"> 
+                <span className="text noDecoration">Tv</span>
+                </Link>
                 </div>
                 <div className="icons movies">
                 <FontAwesomeIcon icon={faFilm} />
@@ -45,7 +49,9 @@ const Leftbar = () => {
                 </div>
                 <div className="icons sports">
                 <FontAwesomeIcon icon={faVolleyball} />
-                <span className="text">Sports</span>
+                <Link to = "/Sports"  className="noDecoration"> 
+                <span className="text noDecoration">Sports</span>
+                </Link>
                 </div>
             </div>
         </div>
