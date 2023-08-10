@@ -7,13 +7,15 @@ const ItemsPanel = ({ category, moviesArray, handlewatchlist}) => {
   const maxItems = 15;
 
   return (
+    <div className="main">
+    <div className="category">{category}</div>
     <div className="ItemsPanel">
-      <div className="category">{category}</div>
       <div className="slider">
         {moviesArray.slice(0, maxItems).map((movie) => (
           <Item key={movie.id} movieInfo={movie} handlewatchlist={handlewatchlist}/>
         ))}
       </div>
+    </div>
     </div>
   );
 };

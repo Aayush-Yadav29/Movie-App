@@ -1,8 +1,8 @@
 .Item {
   display: inline-block;
   position: relative;
-  margin: 2px;
-  margin-right: 0.4%;
+  /* margin: 2px; */
+  margin-right: 0px;
   width: 13rem;
   height: 70%;
   transition: transform 0.3s;
@@ -20,7 +20,8 @@
 .Item:hover {
   cursor: pointer;
   z-index: 2;
-  transform: translateZ(50px) scale(1.7);
+  transform: translateZ(50px) scale(1.2);
+  border-radius: 4px;
 }
 
 .Item .Item-content {

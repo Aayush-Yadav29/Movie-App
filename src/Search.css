@@ -18,6 +18,10 @@ body, html {
   header{
     background-color: blueviolet;
   }
+  .Searchbar{
+    background-color: black;
+    padding-top: 7px;
+  }
   .grid {
     /* min-height: 100vh; */
     display: grid;

@@ -12,14 +12,14 @@ const Leftbar = () => {
             <div className="logo">
                 <img src='https://yt3.googleusercontent.com/ytc/AOPolaTCCpFIry8HKv8PLZfuE6JiBc995ruWT3YQYcyQ7A=s900-c-k-c0x00ffffff-no-rj' alt=''></img>    
             </div>
-            {isAuthenticated ? (
+            {/* {isAuthenticated ? (
                 <div>  <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                 Log Out
               </button></div>
             ):(
                 <div> <button onClick={() => loginWithRedirect()}>Log In</button></div>
 
-            )}
+            )} */}
             <div className="navbar">
                 {/* <div className="icons myspace">
                 <FontAwesomeIcon icon={faUser} />
