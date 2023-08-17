@@ -32,9 +32,9 @@ const Leftbar = () => {
                 </Link>
                 </div>
                 <div className="icons home">
-                <FontAwesomeIcon icon={faHouse} />
+                <FontAwesomeIcon icon={faFilm} />
                 <Link to = "/MainPanel"  className="noDecoration"> 
-                <span className="text noDecoration">Home</span>
+                <span className="text">Movies</span>
                 </Link>
                 </div>
                 <div className="icons tv">
@@ -43,10 +43,10 @@ const Leftbar = () => {
                 <span className="text noDecoration">Tv</span>
                 </Link>
                 </div>
-                <div className="icons movies">
+                {/* <div className="icons movies">
                 <FontAwesomeIcon icon={faFilm} />
                 <span className="text">Movies</span>
-                </div>
+                </div> */}
                 <div className="icons sports">
                 <FontAwesomeIcon icon={faVolleyball} />
                 <Link to = "/Sports"  className="noDecoration"> 

@@ -14,7 +14,7 @@ const Item = ({ movieInfo, handlewatchlist}) => {
           <Link to={`/MainPanel/${movieInfo.id}`}>
               <button className="WatchNowButton">Watch Now</button>
           </Link>
-          <button className="PlusButton" onClick={handlewatchlist}>+</button>
+          {/* <button className="PlusButton" onClick={handlewatchlist}>+</button> */}
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ const Tv = () => {
         setTopVoted(results[2].results);
 
         // Fetch movies by genre (Horror)
-        const horrorGenreId = 27; // Replace with the genre ID for Horror (you can find genre IDs in TMDB documentation)
+        const horrorGenreId = 37; // Replace with the genre ID for Horror (you can find genre IDs in TMDB documentation)
         const horrorResponse = await fetch(
           `${baseUrl}?api_key=${apiKey}&with_genres=${horrorGenreId}&page=1`
         );
@@ -41,7 +41,7 @@ const Tv = () => {
         setHorrorMovies(horrorResult.results);
 
         // Fetch movies by genre (Comedy)
-        const comedyGenreId = 35; // Replace with the genre ID for Comedy (you can find genre IDs in TMDB documentation)
+        const comedyGenreId = 35; 
         const comedyResponse = await fetch(
           `${baseUrl}?api_key=${apiKey}&with_genres=${comedyGenreId}&page=1`
         );
@@ -75,9 +75,9 @@ const Tv = () => {
       <ItemsPanel category="Highly Rated" moviesArray={topVoted} handlewatchlist={addTowatchlist} key="rate" />
       
       {/* New components for horror and comedy movies */}
-      <ItemsPanel category="Horror" moviesArray={horrorMovies} handlewatchlist={addTowatchlist} key="horror" />
+      <ItemsPanel category="Action" moviesArray={horrorMovies} handlewatchlist={addTowatchlist} key="horror" />
       <ItemsPanel category="Comedy" moviesArray={comedyMovies} handlewatchlist={addTowatchlist} key="comedy" />
-      <Watchlist moviesArray={watchlist} />
+      {/* <Watchlist moviesArray={watchlist} /> */}
     </div>
   );
 };

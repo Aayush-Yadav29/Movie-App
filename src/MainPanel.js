@@ -81,7 +81,7 @@ const MainPanel = () => {
       {/* New components for horror and comedy movies */}
       <ItemsPanel category="Horror" moviesArray={horrorMovies} handlewatchlist={addTowatchlist}  key="horror" />
       <ItemsPanel category="Comedy" moviesArray={comedyMovies} handlewatchlist={addTowatchlist} key="comedy" />
-      <Watchlist moviesArray={watchlist} />
+      {/* <Watchlist moviesArray={watchlist} /> */}
     </div>
   );
 };

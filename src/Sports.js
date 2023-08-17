@@ -54,9 +54,9 @@ const Sports = () => {
   }
     return (
         <div className="Sports">
-            <ItemsPanel category="Cricket" moviesArray={cricket} handlewatchlist={addTowatchlist}/>
             <ItemsPanel category="Football" moviesArray={football} handlewatchlist={addTowatchlist}/>
             <ItemsPanel category="Chess" moviesArray={chess} handlewatchlist={addTowatchlist}/>
+            <ItemsPanel category="Cricket" moviesArray={cricket} handlewatchlist={addTowatchlist}/>
             <ItemsPanel category="Basketball" moviesArray={basketball} handlewatchlist={addTowatchlist}/>
             <ItemsPanel category="Soccer" moviesArray={soccer} handlewatchlist={addTowatchlist}/>
         </div>
