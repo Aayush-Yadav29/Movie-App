@@ -10,12 +10,13 @@ const Item = ({ movieInfo, handlewatchlist}) => {
         <div className="Item-image">
           <img src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt="" />
         </div>
+        <Link to={`/MainPanel/${movieInfo.id}`}>
         <div className="Item-details">
-          <Link to={`/MainPanel/${movieInfo.id}`}>
-              <button className="WatchNowButton">Watch Now</button>
-          </Link>
+            Watch Now
+              {/* <button className="WatchNowButton">Watch Now</button> */}
           {/* <button className="PlusButton" onClick={handlewatchlist}>+</button> */}
         </div>
+        </Link>
       </div>
     </div>
   );

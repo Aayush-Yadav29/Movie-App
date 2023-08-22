@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 .Item {
   display: inline-block;
   position: relative;
   /* margin: 2px; */
-  margin-right: 0px;
+  margin-right: 10px;
   width: 13rem;
   height: 70%;
   transition: transform 0.3s;
@@ -55,37 +56,23 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  /* height: 2rem; */
+  height: 40px;
   padding: 5px;
   box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-image: linear-gradient(rgb(84, 81, 81), rgb(15, 15, 14)); */
+  background: linear-gradient(to top, rgb(3, 3, 3), rgba(53, 53, 54, 0.5));
+  color: white;
+  /* opacity: 0.9; */
   display: none;
   pointer-events: none;
 }
 
+
 .Item:hover .Item-details {
   pointer-events: auto;
-}
-/* .Item:hover .Item-image {
-  object-fit: cover;
-} */
-.Item .Item-details button {
-  padding: 10px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  margin-right: 5px;
-  border-radius: 5px;
-}
-.WatchNowButton{
-    width: 90%;
-    height: 2rem;
-}
-.PlusButton{
-  height: 2rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  justify-content: center;
 }
 
-.Item .Item-details button:hover {
-  background-color: #0056b3;
-}
